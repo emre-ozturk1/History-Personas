@@ -1,0 +1,126 @@
+/* 🎨 Açık Tema Renkleri */
+/* 🎨 Geliştirilmiş Açık Tema (Parchment - Parşömen) */
+[data-theme="light"] {
+  --color-background: #fdfbf5; /* Ana Arka Plan (Sıcak, eskitilmiş kağıt) */
+  --color-background-secondary: #f5f2e9; /* İkincil Arka Plan (Kartlar, vurgulu alanlar) */
+  --color-background-tertiary: #eae6d9; /* Üçüncül Arka Plan (Pasif butonlar, input alanları) */
+
+  --color-text-primary: #2c2922; /* Ana Metin Rengi (Biraz daha yumuşak siyah) */
+  --color-text-secondary: #6e6758; /* İkincil Metin Rengi (Açıklamalar, etiketler) */
+
+  --color-accent: #b89b37; /* Ana Vurgu Rengi (Aktif butonlar, linkler) */
+  --color-accent-hover: #c7a93e; /* Vurgu Rengi - Hover (Üzerine gelince) */
+  --color-accent-text: #ffffff; /* Vurgu Renginin Üzerindeki Metin */
+
+  --color-border: #dcd8c8; /* Sınır Çizgileri (Ayırıcılar, input kenarlıkları) */
+  --color-shadow: rgba(
+    44,
+    41,
+    34,
+    0.1
+  ); /* Gölgeler için (Daha yumuşak ve sıcak bir gölge) */
+
+  --switch-background-inactive: #d1cec5; /* Ayar Düğmesi - Kapalı Arka Plan */
+  --switch-handle: #ffffff; /* Ayar Düğmesi - Tutamaç */
+}
+
+/* 🎨 Geliştirilmiş Koyu Tema (Inkwell - Mürekkep Hokkası) */
+[data-theme="dark"] {
+  --color-background: #211f1a; /* Ana Arka Plan (Derin, karanlık) */
+  --color-background-secondary: #3a362d; /* İkincil Arka Plan (Kartlar, pasif butonlar) */
+  --color-background-tertiary: #4d4941; /* Üçüncül Arka Plan (Input alanları) */
+
+  --color-text-primary: #f5f5dc; /* Ana Metin Rengi (Sıcak beyaz) */
+  --color-text-secondary: #a8a396; /* İkincil Metin Rengi (Açıklamalar, etiketler) */
+
+  --color-accent: #b89b37; /* Ana Vurgu Rengi (Her temada tutarlı) */
+  --color-accent-hover: #c7a93e; /* Vurgu Rengi - Hover (Her temada tutarlı) */
+  --color-accent-text: #211f1a; /* Vurgu Renginin Üzerindeki Metin */
+
+  --color-border: #4f4a40; /* Sınır Çizgileri (Ayırıcılar, input kenarlıkları) */
+  --color-shadow: rgba(0, 0, 0, 0.2); /* Gölgeler için */
+
+  --switch-background-inactive: #4d4941; /* Ayar Düğmesi - Kapalı Arka Plan */
+  --switch-handle: #f5f5dc; /* Ayar Düğmesi - Tutamaç */
+}
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+/* --- Genel Sıfırlama ve Body Stilleri --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+}
+
+/* --- Header Ana Kapsayıcı --- */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 48px;
+  background-color: var(--color-background);
+  border-bottom: 1px solid var(--color-text-primary);
+}
+
+/* --- Sol Taraf: Logo --- */
+.header-left .logo {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  text-decoration: none;
+}
+
+/* --- Orta: Navigasyon Menüsü --- */
+.main-navigation ul {
+  display: flex;
+  list-style: none;
+  gap: 32px;
+}
+
+.main-navigation a {
+  text-decoration: none;
+  color: var(--color-text-primary);
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+}
+
+.main-navigation a:hover {
+  color: var(--color-accent-hover);
+}
+
+/* --- Sağ Taraf: İkonlar ve Profil --- */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-primary);
+  transition: color 0.2s ease-in-out;
+}
+
+.icon-button:hover {
+  color: var(--color-accent-hover);
+}
+
+.icon-button svg {
+  display: block;
+}
+
+.profile-avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--color-shadow);
+  display: block;
+}
