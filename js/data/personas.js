@@ -11,6 +11,7 @@
  */
 const personas = {
   "leonardo-da-vinci": {
+    key: "leonardo-da-vinci",
     name: "Leonardo da Vinci",
     dates: "1452 - 1519",
     title: "Sanatçı, Mucit ve Bilim İnsanı",
@@ -33,6 +34,7 @@ const personas = {
     ],
   },
   "marie-curie": {
+    key: "marie-curie",
     name: "Marie Curie",
     dates: "1867 - 1934",
     title: "Fizikçi ve Kimyager",
@@ -55,6 +57,7 @@ const personas = {
     ],
   },
   einstein: {
+    key: "einstein",
     name: "Albert Einstein",
     dates: "1879 - 1955",
     title: "Teorik Fizikçi",
@@ -76,6 +79,7 @@ const personas = {
     ],
   },
   cleopatra: {
+    key: "cleopatra",
     name: "Kleopatra VII",
     dates: "MÖ 69 - MÖ 30",
     title: "Mısır Kraliçesi",
@@ -99,6 +103,7 @@ const personas = {
     ],
   },
   shakespeare: {
+    key: "shakespeare",
     name: "William Shakespeare",
     dates: "1564 - 1616",
     title: "Oyun Yazarı ve Şair",
@@ -115,6 +120,7 @@ const personas = {
     expertise: ["İngiliz Edebiyatı", "tiyatro", "trajedi", "komedi", "soneler"],
   },
   newton: {
+    key: "newton",
     name: "Isaac Newton",
     dates: "1643 - 1727",
     title: "Fizikçi, Matematikçi ve Astronom",
@@ -137,6 +143,7 @@ const personas = {
     ],
   },
   aristotle: {
+    key: "aristotle",
     name: "Aristoteles",
     dates: "MÖ 384 - MÖ 322",
     title: "Filozof",
@@ -153,6 +160,7 @@ const personas = {
     expertise: ["mantık", "metafizik", "etik", "politika", "biyoloji"],
   },
   "julius-caesar": {
+    key: "julius-caesar",
     name: "Jül Sezar",
     dates: "MÖ 100 - MÖ 44",
     title: "Romalı General ve Devlet Adamı",
@@ -176,6 +184,7 @@ const personas = {
     ],
   },
   "nikola-tesla": {
+    key: "nikola-tesla",
     name: "Nikola Tesla",
     dates: "1856 - 1943",
     title: "Mucit ve Elektrik Mühendisi",
@@ -198,6 +207,7 @@ const personas = {
     ],
   },
   "ada-lovelace": {
+    key: "ada-lovelace",
     name: "Ada Lovelace",
     dates: "1815 - 1852",
     title: "Matematikçi ve Yazar",
@@ -220,6 +230,7 @@ const personas = {
     ],
   },
   "vincent-van-gogh": {
+    key: "vincent-van-gogh",
     name: "Vincent van Gogh",
     dates: "1853 - 1890",
     title: "Ressam",
@@ -242,6 +253,7 @@ const personas = {
     ],
   },
   "jane-austen": {
+    key: "jane-austen",
     name: "Jane Austen",
     dates: "1775 - 1817",
     title: "Roman Yazarı",
@@ -264,6 +276,7 @@ const personas = {
     ],
   },
   "martin-luther-king-jr": {
+    key: "martin-luther-king-jr",
     name: "Martin Luther King Jr.",
     dates: "1929 - 1968",
     title: "Sivil Haklar Aktivisti",
@@ -286,6 +299,7 @@ const personas = {
     ],
   },
   "sun-tzu": {
+    key: "sun-tzu",
     name: "Sun Tzu",
     dates: "MÖ 544 - MÖ 496 (Tahmini)",
     title: "General, Stratejist ve Filozof",
@@ -308,6 +322,7 @@ const personas = {
     ],
   },
   hypatia: {
+    key: "hypatia",
     name: "Hypatia",
     dates: "350/370 - 415",
     title: "Filozof, Astronom ve Matematikçi",
@@ -330,6 +345,7 @@ const personas = {
     ],
   },
   fridakahlo: {
+    key: "fridakahlo",
     name: "Frida Kahlo",
     dates: "1907 - 1954",
     title: "Ressam",
@@ -352,6 +368,7 @@ const personas = {
     ],
   },
   "marcus-aurelius": {
+    key: "marcus-aurelius",
     name: "Marcus Aurelius",
     dates: "121 - 180",
     title: "Roma İmparatoru ve Filozof",
@@ -375,6 +392,7 @@ const personas = {
     ],
   },
   "galileo-galilei": {
+    key: "galileo-galilei",
     name: "Galileo Galilei",
     dates: "1564 - 1642",
     title: "Astronom, Fizikçi ve Mühendis",
@@ -397,6 +415,7 @@ const personas = {
     ],
   },
   plato: {
+    key: "plato",
     name: "Platon (Eflatun)",
     dates: "MÖ 428 - MÖ 348",
     title: "Filozof",
@@ -419,6 +438,7 @@ const personas = {
     ],
   },
   "ibn-sina": {
+    key: "ibn-sina",
     name: "İbn-i Sina (Avicenna)",
     dates: "980 - 1037",
     title: "Hekim, Filozof ve Bilim İnsanı",
@@ -441,6 +461,7 @@ const personas = {
     ],
   },
   "mustafa-kemal-ataturk": {
+    key: "mustafa-kemal-ataturk",
     name: "Mustafa Kemal Atatürk",
     dates: "1881 - 1938",
     title: "T.C.nin Kurucusu, Mareşal ve Devlet Adamı",

@@ -20,23 +20,28 @@ allPersonasArray.forEach((persona) => console.log(`- ${persona.name}`));
  */
 function setPersonaCard(personaList) {
   personaList.forEach(
-    (persona) =>
+    (persona) => (
+      console.log(persona),
       (personaCard.innerHTML += `
     <div class="figures">
+        <a href="">
           <img
             src="${persona.image_url}"
             id="${persona.name}"
             alt="${persona.name}"
           />
-          <h4 key="indexPage.figures.${persona.name}.name">${persona.name}</h4>
-          <label for="${persona.name}" key="indexPage.figures.${persona.name}.description"
+          <h4 key="indexPage.figures.${persona.key}.name">${persona.name}</h4>
+          <label for="${persona.name}" key="indexPage.figures.${persona.key}.description"
             >${persona.title}</label
-          >
+          ></a>
         </div>
 
     `)
+    )
   );
 }
+console.log(document.getElementsByClassName("figures"));
+
 setPersonaCard(random5Personas);
 var result = [];
 
@@ -55,9 +60,11 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const results = allPersonasArray.filter((persona) =>
-      persona[searchField].toUpperCase().includes(searchVal)
-    );
+    const results = allPersonasArray.filter((persona) => {
+      const nameMatch = persona.name.toUpperCase().includes(searchVal);
+      const titleMatch = persona.title.toUpperCase().includes(searchVal);
+      return nameMatch || titleMatch;
+    });
 
     setPersonaCard(results);
   });
