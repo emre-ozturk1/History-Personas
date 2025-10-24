@@ -1,0 +1,42 @@
+<div id="header-container"></div>
+<main>
+  <section>
+    <h1 key="indexPage.mainHeading">
+      Konuşmak istediğin tarihi kişilik <br />
+      kim?
+    </h1>
+    <h4 key="indexPage.subHeading">
+      Yapay zeka, tarihin en büyük zihinlerini canlandırıyor. Birini seç ve
+      konuşmaya <br />
+      başla.
+    </h4>
+  </section>
+  <section>
+    <div class="wrapper">
+      <input
+        type="search"
+        name="search"
+        id="srch"
+        placeholder="🔍︎ Tarihi kişiliklerde ara..."
+        key-placeholder="indexPage.search.placeholder"
+      />
+      <button key="indexPage.search.continueButton">Devam et</button>
+    </div>
+  </section>
+  <section id="figures_section"></section>
+</main>
+
+<script>
+  fetch("header.html")
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById("header-container").innerHTML = data;
+      if (window.LanguageService) {
+        LanguageService.translatePage();
+      }
+    })
+    .catch((error) => console.error("Header yüklenemedi:", error));
+</script>
+<script src="js/common/language.js"></script>
+<script src="js/common/cookies.js"></script>
+<script src="js/pages/landing.js" type="module"></script>

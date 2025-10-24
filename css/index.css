@@ -1,24 +1,29 @@
-h1 {
+/* Bu kurallar sadece data-page="landing" aktifken çalışır */
+
+#content[data-page="landing"] h1 {
   text-align: center;
   font-size: 5.1rem;
   padding-top: 50px;
   padding-left: 50px;
   padding-right: 50px;
 }
-h4 {
+
+#content[data-page="landing"] h4 {
   font-size: 1em;
   text-align: center;
   font-weight: 300;
   color: var(--color-text-secondary);
 }
-.wrapper {
+
+#content[data-page="landing"] .wrapper {
   width: 600px;
   max-width: 100%;
   position: relative;
-  left: 27.5%;
-  margin: 50px;
+  /* 'left' yerine 'margin: 50px auto;' kullanmak genellikle daha iyi bir merkezleme sağlar */
+  margin: 50px auto;
 }
-.wrapper input {
+
+#content[data-page="landing"] .wrapper input {
   background: var(--color-background);
   border: 2px solid var(--color-accent);
   border-radius: 10px;
@@ -26,7 +31,8 @@ h4 {
   width: 100%;
   color: var(--color-text-secondary);
 }
-.wrapper button {
+
+#content[data-page="landing"] .wrapper button {
   background: var(--color-accent);
   border-radius: 10px;
   aspect-ratio: 1;
@@ -38,29 +44,36 @@ h4 {
   right: 5px;
   font-weight: 600;
 }
-.wrapper button:hover {
+
+#content[data-page="landing"] .wrapper button:hover {
   background: var(--color-accent-hover);
   box-shadow: var(--color-accent);
 }
-#figures_section {
+
+#content[data-page="landing"] #figures_section {
   background-color: var(--color-background);
   width: 100%;
+  /* max-height, içeriğin taşmasına neden olabilir, dikkatli kullanın */
   max-height: 150px !important;
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
 }
-.figures {
+
+#content[data-page="landing"] .figures {
   background-color: var(--color-background);
   text-align: center;
 }
-.figures h4 {
+
+#content[data-page="landing"] .figures h4 {
   color: var(--color-text-primary);
   font-size: 18px;
 }
-.figures label {
+
+#content[data-page="landing"] .figures label {
   color: var(--color-text-secondary);
 }
-.figures img {
+
+#content[data-page="landing"] .figures img {
   width: 60%;
   aspect-ratio: 1;
   object-fit: cover;

@@ -1,39 +1,35 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const languageSwitcher = document.getElementById("language-switcher");
+import { LanguageService } from "../common/language.js";
+import { initThemeSettings } from "../common/cookies.js";
 
-  // Eğer sayfada dil değiştirme butonu yoksa, bu kodun çalışmasını engelle.
-  if (!languageSwitcher) {
-    return;
-  }
+export async function initSettingsPage() {
+  console.log("Settings sayfası başlatılıyor...");
+
+  await LanguageService.init();
+  initThemeSettings();
+
+  const languageSwitcher = document.getElementById("language-switcher");
+  if (!languageSwitcher) return;
 
   const langButtons = languageSwitcher.querySelectorAll(".lang-btn");
+  const currentLang = LanguageService.getCurrentLanguage();
 
-  // Butonların 'active' durumunu güncelleyen fonksiyon.
-  function updateActiveButton(lang) {
-    langButtons.forEach((button) => {
-      button.classList.toggle("active", button.dataset.lang === lang);
+  function updateActive(lang) {
+    langButtons.forEach((btn) => {
+      btn.classList.toggle("active", btn.dataset.lang === lang);
     });
   }
 
-  // Her bir dil butonuna tıklama olayı ekle.
-  langButtons.forEach((button) => {
-    button.addEventListener("click", function (event) {
-      event.preventDefault(); // Sayfanın yenilenmesini engelle.
-      const selectedLang = this.dataset.lang;
+  updateActive(currentLang);
 
-      // Yeni dili localStorage'a kaydet.
-      localStorage.setItem("dil", JSON.stringify(selectedLang));
-
-      // Butonların görünümünü güncelle.
-      updateActiveButton(selectedLang);
-
-      // Genel dil servisinden sayfayı yeniden çevirmesini iste.
-      // LanguageService objesi, önce eklediğimiz language.js dosyasından geliyor.
+  langButtons.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const selected = btn.dataset.lang;
+      localStorage.setItem("dil", JSON.stringify(selected));
       LanguageService.translatePage();
+      updateActive(selected);
+      // Diğer sayfalara bildir
+      localStorage.setItem("languageChange", Date.now().toString());
     });
   });
-
-  // Sayfa ilk yüklendiğinde mevcut dile göre doğru butonu 'active' yap.
-  const currentLang = LanguageService.getCurrentLanguage();
-  updateActiveButton(currentLang);
-});
+}

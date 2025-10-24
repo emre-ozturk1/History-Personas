@@ -1,71 +1,73 @@
-import personas from "../data/personas.js";
 import personasData from "../data/personas.js";
-/* console.log(personasData); */
-const allPersonasArray = Object.values(personasData);
-const einsteinData = personasData[""];
-const personaCard = document.getElementById("figures_section");
-const searchInput = document.getElementById("srch");
+import { LanguageService } from "../common/language.js";
+LanguageService.translatePage();
 
-function getRandomPersonas(count) {
+// Sayfayı başlatan fonksiyon (router buradan çağıracak)
+export function initLandingPage() {
+  console.log("Landing sayfası başlatıldı 🚀");
+
   const allPersonasArray = Object.values(personasData);
-  /* console.log(allPersonasArray); */
-  allPersonasArray.sort(() => 0.5 - Math.random());
-  return allPersonasArray.slice(0, count);
-}
-const random5Personas = getRandomPersonas(5);
-/* console.log(random5Personas); */
-
-allPersonasArray.forEach((persona) => console.log(`- ${persona.name}`));
-/* console.log(personaCard);
- */
-function setPersonaCard(personaList) {
-  personaList.forEach(
-    (persona) => (
-      console.log(persona),
-      (personaCard.innerHTML += `
-    <div class="figures">
-        <a href="">
-          <img
-            src="${persona.image_url}"
-            id="${persona.name}"
-            alt="${persona.name}"
-          />
-          <h4 key="indexPage.figures.${persona.key}.name">${persona.name}</h4>
-          <label for="${persona.name}" key="indexPage.figures.${persona.key}.description"
-            >${persona.title}</label
-          ></a>
-        </div>
-
-    `)
-    )
-  );
-}
-console.log(document.getElementsByClassName("figures"));
-
-setPersonaCard(random5Personas);
-var result = [];
-
-document.addEventListener("DOMContentLoaded", () => {
+  const personaCard = document.getElementById("figures_section");
   const searchInput = document.getElementById("srch");
 
-  searchInput.addEventListener("input", () => {
-    const searchVal = searchInput.value.trim().toUpperCase();
-    const searchField = "name";
-    const searchField2 = "title";
+  if (!personaCard || !searchInput) {
+    console.warn("Landing sayfası öğeleri yüklenemedi ❌");
+    return;
+  }
 
-    personaCard.innerHTML = "";
+  // Rastgele 5 persona getir
+  function getRandomPersonas(count) {
+    const shuffled = [...allPersonasArray].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
+  }
 
-    if (!searchVal) {
-      setPersonaCard(random5Personas);
-      return;
-    }
+  const random5Personas = getRandomPersonas(5);
 
-    const results = allPersonasArray.filter((persona) => {
-      const nameMatch = persona.name.toUpperCase().includes(searchVal);
-      const titleMatch = persona.title.toUpperCase().includes(searchVal);
-      return nameMatch || titleMatch;
+  // Persona kartlarını ekrana bas
+  function setPersonaCard(personaList) {
+    personaCard.innerHTML = ""; // her çağrıda sıfırla
+    personaList.forEach((persona) => {
+      personaCard.innerHTML += `
+        <div class="figures">
+          <a href="#">
+            <img
+              src="${persona.image_url}"
+              id="${persona.name}"
+              alt="${persona.name}"
+            />
+            <h4 key="indexPage.figures.${persona.key}.name">${persona.name}</h4>
+            <label for="${persona.name}" key="indexPage.figures.${persona.key}.description">
+              ${persona.title}
+            </label>
+          </a>
+        </div>`;
     });
+    LanguageService.translatePage();
+  }
 
-    setPersonaCard(results);
-  });
-});
+  // Arama kutusuna filtreleme ekle
+  function setupSearch() {
+    searchInput.addEventListener("input", () => {
+      const searchVal = searchInput.value.trim().toUpperCase();
+      if (!searchVal) {
+        setPersonaCard(random5Personas);
+        return;
+      }
+
+      const results = allPersonasArray.filter((persona) => {
+        return (
+          persona.name.toUpperCase().includes(searchVal) ||
+          persona.title.toUpperCase().includes(searchVal)
+        );
+      });
+
+      setPersonaCard(results);
+    });
+  }
+
+  // Sayfa başlat
+  setPersonaCard(random5Personas);
+  setupSearch();
+
+  console.log("Landing sayfası hazır ✅");
+}

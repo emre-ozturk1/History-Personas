@@ -64,7 +64,9 @@
     "indexPage.figures.ibn-sina.name": "İbn-i Sina (Avicenna)",
     "indexPage.figures.ibn-sina.description": "Hekim, Filozof ve Bilim İnsanı",
     "indexPage.figures.mustafa-kemal-ataturk.name": "Mustafa Kemal Atatürk",
-    "indexPage.figures.mustafa-kemal-ataturk.description": "T.C.nin Kurucusu, Mareşal ve Devlet Adamı"
+    "indexPage.figures.mustafa-kemal-ataturk.description": "T.C.nin Kurucusu, Mareşal ve Devlet Adamı",
+    "aboutPage.title": "Hakkında",
+    "aboutPage.description": "Echoes of History projesi, tarihin önemli kişiliklerini tanıtır."
   },
   "en": {
     "header.logo": "Echoes of History",
@@ -131,6 +133,8 @@
     "indexPage.figures.ibn-sina.name": "Ibn Sina (Avicenna)",
     "indexPage.figures.ibn-sina.description": "Physician, Philosopher and Scientist",
     "indexPage.figures.mustafa-kemal-ataturk.name": "Mustafa Kemal Atatürk",
-    "indexPage.figures.mustafa-kemal-ataturk.description": "Founder of T.R., Marshal and Statesman"
+    "indexPage.figures.mustafa-kemal-ataturk.description": "Founder of T.R., Marshal and Statesman",
+    "aboutPage.title": "About",
+    "aboutPage.description": "Echoes of History introduces historical figures."
   }
 }
