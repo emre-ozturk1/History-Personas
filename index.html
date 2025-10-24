@@ -1,54 +1,61 @@
 <!DOCTYPE html>
-<html data-theme="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/index.css" />
-    <title key="indexPage.title">History Personas</title>
+    <title>Document</title>
   </head>
   <body>
-    <div id="header-container"></div>
-    <main>
-      <section>
-        <h1 key="indexPage.mainHeading">
-          Konuşmak istediğin tarihi kişilik <br />
-          kim?
-        </h1>
-        <h4 key="indexPage.subHeading">
-          Yapay zeka, tarihin en büyük zihinlerini canlandırıyor. Birini seç ve
-          konuşmaya <br />
-          başla.
-        </h4>
-      </section>
-      <section>
-        <div class="wrapper">
-          <input
-            type="search"
-            name="search"
-            id="srch"
-            placeholder="🔍︎ Tarihi kişiliklerde ara..."
-            key-placeholder="indexPage.search.placeholder"
-          />
-          <button key="indexPage.search.continueButton">Devam et</button>
-        </div>
-      </section>
-      <section id="figures_section"></section>
-    </main>
+    <header class="site-header">
+      <div class="header-left">
+        <a href="/" class="logo" key="header.logo">Echoes of History</a>
+      </div>
 
-    <script>
-      fetch("header.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("header-container").innerHTML = data;
-          if (window.LanguageService) {
-            LanguageService.translatePage();
-          }
-        })
-        .catch((error) => console.error("Header yüklenemedi:", error));
-    </script>
-    <script src="js/common/language.js"></script>
+      <nav class="main-navigation">
+        <ul>
+          <li><a href="/" key="header.nav.home">Anasayfa</a></li>
+          <li><a href="/about" key="header.nav.explore">Keşfet</a></li>
+          <li><a href="/echoes" key="header.nav.myEchoes">Yankılarım</a></li>
+          <li><a href="/community" key="header.nav.community">Topluluk</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-right">
+        <a href="/settings">
+          <button
+            class="icon-button"
+            aria-label="Ayarlar"
+            key-aria-label="header.settingsButtonLabel"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="3"></circle>
+              <path
+                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
+              ></path>
+            </svg></button
+        ></a>
+        <a href="/profile" class="profile-avatar">
+          <img
+            src="https://i.pravatar.cc/40"
+            alt="Kullanıcı profili"
+            key-alt="header.profileAvatarAlt"
+          />
+        </a>
+      </div>
+    </header>
+    <main id="content"></main>
     <script src="js/common/cookies.js"></script>
-    <script src="js/pages/landing.js" type="module"></script>
+    <script src="js/common/language.js"></script>
+    <script src="js/url-router.js"></script>
   </body>
 </html>
