@@ -28,6 +28,16 @@ const urlRoutes = {
     title: "Hakkında | Echoes of History",
     pageId: "about",
   },
+  "/login": {
+    template: "templates/login.html",
+    title: "Giriş Yap | Echoes of History",
+    pageId: "login",
+  },
+  "/signin": {
+    template: "templates/signin.html",
+    title: "Kayıt Ol | Echoes of History",
+    pageId: "signin",
+  },
 };
 
 // 2. Link tıklamasını yakalayan fonksiyon
@@ -93,6 +103,10 @@ const urlLocationHandler = async () => {
 
   // Sayfaya özel script yükle
   loadPageScript(location);
+
+  if (!urlRoutes[location]) {
+    window.history.pushState({}, "", "/not-found");
+  }
 };
 
 // 5. Header linklerini dinle
