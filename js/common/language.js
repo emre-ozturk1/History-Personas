@@ -1,4 +1,3 @@
-// js/services/language.js
 export const LanguageService = {
   translations: {},
 
@@ -47,7 +46,6 @@ export const LanguageService = {
   },
 };
 
-// 🌍 Diğer sayfalar da dil değişikliğini otomatik algılasın:
 window.addEventListener("storage", (event) => {
   if (event.key === "dil") {
     LanguageService.translatePage();

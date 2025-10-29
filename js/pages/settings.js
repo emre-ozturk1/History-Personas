@@ -28,7 +28,6 @@ export async function initSettingsPage() {
       localStorage.setItem("dil", JSON.stringify(selected));
       LanguageService.translatePage();
       updateActive(selected);
-      // Diğer sayfalara bildir
       localStorage.setItem("languageChange", Date.now().toString());
     });
   });

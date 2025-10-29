@@ -1,5 +1,3 @@
-/* Bu kurallar sadece data-page="landing" aktifken çalışır */
-
 #content[data-page="landing"] h1 {
   text-align: center;
   font-size: 5.1rem;
@@ -19,7 +17,6 @@
   width: 600px;
   max-width: 100%;
   position: relative;
-  /* 'left' yerine 'margin: 50px auto;' kullanmak genellikle daha iyi bir merkezleme sağlar */
   margin: 50px auto;
 }
 
@@ -53,7 +50,6 @@
 #content[data-page="landing"] #figures_section {
   background-color: var(--color-background);
   width: 100%;
-  /* max-height, içeriğin taşmasına neden olabilir, dikkatli kullanın */
   max-height: 150px !important;
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;

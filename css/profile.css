@@ -1,7 +1,5 @@
-/* profile.css (TAMAMEN YENİ) */
-
 .profile-page {
-  max-width: 800px; /* Kartı biraz genişletelim */
+  max-width: 800px;
   margin: 40px auto;
   padding: 2rem;
 }
@@ -16,7 +14,7 @@
 
 .profile-card {
   display: flex;
-  flex-direction: column; /* Mobilde alt alta */
+  flex-direction: column;
   gap: 2rem;
   background-color: var(--color-background-secondary);
   padding: 2.5rem;
@@ -25,17 +23,15 @@
   border: 1px solid var(--color-border);
 }
 
-/* Orta ve büyük ekranlarda yan yana */
 @media (min-width: 768px) {
   .profile-card {
-    flex-direction: row; /* Masaüstünde yan yana */
+    flex-direction: row;
     align-items: flex-start;
   }
 }
 
-/* Sol Taraf: Fotoğraf */
 .profile-photo-container {
-  flex-basis: 200px; /* Sabit bir genişlik ayarla */
+  flex-basis: 200px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -53,7 +49,6 @@
   transition: filter 0.2s ease;
 }
 
-/* Fotoğraf değiştirme aktifken (disabled değilken) */
 #changePhotoBtn:not(:disabled) + .profile-avatar {
   cursor: pointer;
 }
@@ -61,9 +56,8 @@
   filter: brightness(0.9);
 }
 
-/* Sağ Taraf: Form */
 .profile-info-form {
-  flex-grow: 1; /* Kalan tüm alanı kapla */
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
@@ -91,14 +85,12 @@
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-/* Düzenleme dışındayken (disabled) */
 .form-input:disabled {
   background-color: var(--color-background-muted);
   color: var(--color-text-secondary);
   cursor: not-allowed;
 }
 
-/* Düzenleme aktifken */
 .form-input:not(:disabled) {
   border-color: var(--color-accent);
 }
@@ -114,15 +106,13 @@
   margin-top: -0.25rem;
 }
 
-/* Butonlar */
 .form-actions {
   display: flex;
   gap: 0.75rem;
   margin-top: 1rem;
-  flex-wrap: wrap; /* Mobilde butonlar sığmazsa alt satıra at */
+  flex-wrap: wrap;
 }
 
-/* Genel Buton Stili (main.css'te olmalı ama burada tanımlayalım) */
 .btn {
   padding: 0.7rem 1.2rem;
   border-radius: 8px;
@@ -131,7 +121,7 @@
   font-weight: 600;
   font-size: 0.95rem;
   transition: all 0.2s ease;
-  display: inline-flex; /* İkonla hizalamak için */
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   justify-content: center;
@@ -147,11 +137,11 @@
   color: #fff;
 }
 .btn-primary:hover:not(:disabled) {
-  background-color: var(--color-accent-dark); /* Koyu tonu */
+  background-color: var(--color-accent-dark);
 }
 
 .btn-success {
-  background-color: #28a745; /* Yeşil */
+  background-color: #28a745;
   color: #fff;
 }
 .btn-success:hover:not(:disabled) {

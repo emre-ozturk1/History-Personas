@@ -1,8 +1,7 @@
-// js/pages/signin.js
 import { hashText } from "../common/utils.js";
 
 export function initSigninPage() {
-  console.log("✅ Signin sayfası yüklendi");
+  console.log(" Signin sayfası yüklendi");
 
   if (window.LanguageService) {
     LanguageService.translatePage();
@@ -21,7 +20,6 @@ export function initSigninPage() {
     const password = passwordInput.value.trim();
     const photoFile = profilePhotoInput.files[0];
 
-    // 🧩 Ad Soyad Kontrolü
     if (!firstName) {
       alert("Lütfen adınızı girin!");
       firstNameInput.focus();
@@ -33,7 +31,6 @@ export function initSigninPage() {
       return;
     }
 
-    // 🧩 E-posta Kontrolü
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
       alert("Lütfen geçerli bir e-posta adresi girin!");
@@ -41,21 +38,18 @@ export function initSigninPage() {
       return;
     }
 
-    // 🧩 Şifre Kontrolü
     if (!password || password.length < 6) {
       alert("Şifre en az 6 karakter olmalı!");
       passwordInput.focus();
       return;
     }
 
-    // 🧩 Kullanıcı adı (e-posta) benzersiz mi?
     const users = JSON.parse(localStorage.getItem("users")) ?? [];
     if (users.some((u) => u.email === email)) {
       alert("Bu e-posta adresiyle zaten bir hesap mevcut!");
       return;
     }
 
-    // 🧩 Profil fotoğrafını base64'e çevir
     let profilePhoto = "";
     if (photoFile) {
       profilePhoto = await toBase64(photoFile);
@@ -80,7 +74,6 @@ export function initSigninPage() {
     window.location.href = "/login";
   }
 
-  // 🧩 File to Base64 Helper
   function toBase64(file) {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();

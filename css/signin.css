@@ -20,32 +20,30 @@
   padding: 16px 0;
 }
 #content[data-page="login"] h1 {
-  font-size: 2.5rem; /* 40px */
+  font-size: 2.5rem;
   font-weight: 700;
   text-align: center;
   margin-bottom: 16px;
   margin-top: 50px;
 }
 #content[data-page="login"] label {
-  display: block; /* Elemanın tüm satırı kaplamasını sağlar ve altındaki elemanı bir alt satıra iter */
-  margin-bottom: 5px; /* İnput ile arasına 5px'lik bir boşluk koyar */
-  font-weight: bold; /* Yazıyı biraz kalınlaştıralım */
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
   float: left;
   position: relative;
   right: 120px;
 }
 
-/* İnput alanlarının genişliğini ayarlayalım */
 #content[data-page="login"] input {
-  width: 250px; /* Genişlik */
-  padding: 8px; /* İç boşluk */
+  width: 250px;
+  padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-/* Butonun stilini de düzenleyelim */
 #content[data-page="login"] button {
-  width: 268px; /* İnput ile aynı genişlikte olması için (padding dahil) */
+  width: 268px;
   padding: 10px;
   border: none;
   background-color: var(--color-background-secondary);
@@ -61,7 +59,7 @@
   width: 300px;
   max-width: 100%;
   position: relative;
-  /* 'left' yerine 'margin: 50px auto;' kullanmak genellikle daha iyi bir merkezleme sağlar */
+
   margin: auto;
 }
 

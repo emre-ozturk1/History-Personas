@@ -20,15 +20,12 @@ export function getCookie(cname) {
 
 /**
  * YENİ EKLENEN FONKSİYON: Belirtilen isimdeki cookie'yi siler.
- * @param {string} name - Silinecek cookie'nin adı.
+ * @param {string} name
  */
 export function deleteCookie(name) {
   console.log(`Cookie siliniyor: ${name}`);
-  // Cookie'yi silmek için son kullanma tarihini geçmiş bir tarihe ayarlarız
   document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
 }
-
-// --- Tema Fonksiyonları (DOKUNULMADI) ---
 
 // Tema uygula
 export function applyTheme(theme) {
@@ -47,13 +44,10 @@ export function applyTheme(theme) {
   }
 }
 
-// Tema ayarlarını uygula (navbar + settings)
 export function initThemeSettings() {
-  // 🍪 Mevcut temayı oku
   const temaCookie = getCookie("tema") || "auto";
   applyTheme(temaCookie);
 
-  // 🔘 Settings sayfasındaki tema radio butonlarını bağla
   const themeInputs = document.querySelectorAll(
     '.segmented-control input[name="theme"]'
   );
@@ -66,10 +60,8 @@ export function initThemeSettings() {
     });
   });
 
-  // 🌙 Navbar’daki toggle butonunu bağla
   const themeToggle = document.getElementById("theme-toggle");
   if (themeToggle) {
-    // Eğer dark ise, toggle'ı açık yap
     themeToggle.checked = temaCookie === "dark";
 
     themeToggle.addEventListener("change", () => {
@@ -80,7 +72,6 @@ export function initThemeSettings() {
     });
   }
 
-  // 🌀 Diğer sekme / sayfalar temayı güncellediğinde algıla
   window.addEventListener("storage", (event) => {
     if (event.key === "themeChange") {
       const tema = getCookie("tema") || "auto";

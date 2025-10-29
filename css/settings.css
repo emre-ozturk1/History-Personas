@@ -1,77 +1,46 @@
-/* ====================================================== */
-/* AYARLAR SAYFASI (settings.css)                */
-/* ====================================================== */
-
-/* --- 1. Ana İçerik Alanı Düzeni --- */
-/*
-  NOT: 'display: grid' yerine dikey hizalama için daha uygun olan
-  'display: flex' ve 'flex-direction: column' kullanıldı.
-  Bu, bölümlerin alt alta düzgünce sıralanmasını sağlar.
-*/
 #content[data-page="settings"] {
   width: 100%;
-  max-width: 700px; /* İçeriğin çok genişlemesini önler */
+  max-width: 700px;
   display: flex;
   flex-direction: column;
-  gap: 32px; /* Bölümler arasına boşluk ekler */
+  gap: 32px;
 
-  /* Eski merkezleme kodunu koruyoruz */
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-/* --- 2. Ana Başlık (H1) --- */
-/*
-  NOT: Başlığı gizleyen 'display: none' kuralı kaldırıldı.
-  Hedef tasarıma uygun stiller eklendi.
-*/
 #content[data-page="settings"] h1 {
-  font-size: 2.5rem; /* 40px */
+  font-size: 2.5rem;
   font-weight: 700;
   text-align: left;
   margin-bottom: 16px;
 }
 
-/* --- 3. Bölüm Düzeni (float yerine Flexbox) --- */
-/*
-  NOT: Her bir ayar bölümünü (Tema, Dil vb.) kendi içinde
-  hizalamak için Flexbox kullanıldı.
-*/
 #content[data-page="settings"] section {
   display: flex;
-  justify-content: space-between; /* Başlığı sola, kontrolü sağa yaslar */
-  align-items: center; /* Dikeyde ortalar */
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   padding: 16px 0;
-  border-bottom: 1px solid var(--color-border); /* Bölümler arasına ayırıcı çizgi */
+  border-bottom: 1px solid var(--color-border);
 }
 
-/* Son bölümün altındaki çizgiyi kaldır */
 #content[data-page="settings"] section:last-of-type {
   border-bottom: none;
 }
 
-/* --- 4. Bölüm Başlıkları (H3) --- */
-/*
-  NOT: 'float: left' kuralı kaldırıldı çünkü artık Flexbox kullanıyoruz.
-*/
 #content[data-page="settings"] section h3 {
-  font-size: 1.125rem; /* 18px */
+  font-size: 1.125rem;
   font-weight: 500;
   color: var(--color-text-primary);
 }
 
-/* --- 5. Kontrol Elementleri (Butonlar, Switch'ler vb.) --- */
-/*
-  NOT: Bu kurallar büyük ölçüde aynı kaldı, sadece hizalamaları
-  artık üst element olan <section> tarafından yönetiliyor.
-*/
 #content[data-page="settings"] .segmented-control {
   display: flex;
   align-items: center;
-  gap: 8px; /* Butonlar arasına hafif boşluk */
+  gap: 8px;
   background-color: var(--color-background-secondary);
   padding: 5px;
   border-radius: 12px;
@@ -104,7 +73,6 @@
 }
 
 #content[data-page="settings"] #language-switcher .lang-btn {
-  /* label ile aynı stilleri kullanabilir */
 }
 
 #content[data-page="settings"] #language-switcher .lang-btn.active {

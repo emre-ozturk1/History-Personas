@@ -26,7 +26,6 @@ export function initLanguageSwitcher() {
     });
   });
 
-  // 💡 Diğer sekmeler / sayfalar da dinlesin
   window.addEventListener("storage", (event) => {
     if (event.key === "languageChange") {
       const lang = LanguageService.getCurrentLanguage();

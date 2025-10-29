@@ -1,17 +1,15 @@
 import personasData from "../data/personas.js";
 import { LanguageService } from "../common/language.js";
-LanguageService.translatePage();
 
-// Sayfayı başlatan fonksiyon (router buradan çağıracak)
 export function initLandingPage() {
-  console.log("Landing sayfası başlatıldı 🚀");
+  console.log("Landing sayfası başlatıldı ");
 
   const allPersonasArray = Object.values(personasData);
   const personaCard = document.getElementById("figures_section");
   const searchInput = document.getElementById("srch");
 
   if (!personaCard || !searchInput) {
-    console.warn("Landing sayfası öğeleri yüklenemedi ❌");
+    console.warn("Landing sayfası öğeleri yüklenemedi ");
     return;
   }
 
@@ -25,32 +23,30 @@ export function initLandingPage() {
 
   // Persona kartlarını ekrana bas
   function setPersonaCard(personaList) {
-    personaCard.innerHTML = ""; // her çağrıda sıfırla
+    personaCard.innerHTML = "";
     personaList.forEach((persona) => {
       personaCard.innerHTML += `
         <div class="figures">
-          <a href="#">
+          <a href="/persona/${persona.key}">
             <img
-              src="${persona.image_url}"
-              id="${persona.name}"
+              src="${persona.image_url}" 
               alt="${persona.name}"
             />
             <h4 key="indexPage.figures.${persona.key}.name">${persona.name}</h4>
-            <label for="${persona.name}" key="indexPage.figures.${persona.key}.description">
+            <p key="indexPage.figures.${persona.key}.description">
               ${persona.title}
-            </label>
+            </p>
           </a>
         </div>`;
     });
-    LanguageService.translatePage();
   }
 
-  // Arama kutusuna filtreleme ekle
   function setupSearch() {
     searchInput.addEventListener("input", () => {
       const searchVal = searchInput.value.trim().toUpperCase();
       if (!searchVal) {
         setPersonaCard(random5Personas);
+        LanguageService.translatePage();
         return;
       }
 
@@ -62,12 +58,12 @@ export function initLandingPage() {
       });
 
       setPersonaCard(results);
+      LanguageService.translatePage();
     });
   }
 
-  // Sayfa başlat
   setPersonaCard(random5Personas);
   setupSearch();
 
-  console.log("Landing sayfası hazır ✅");
+  console.log("Landing sayfası hazır ");
 }

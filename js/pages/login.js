@@ -1,7 +1,7 @@
 import { hashText } from "../common/utils.js";
 
 export function initLoginPage() {
-  console.log("✅ Login sayfası yüklendi");
+  console.log(" Login sayfası yüklendi");
 
   if (window.LanguageService) {
     LanguageService.translatePage();
@@ -22,7 +22,6 @@ export function initLoginPage() {
 
     const inputPasswordHash = await hashText(plainPassword);
 
-    // 🧩 Kayıtlı kullanıcıyı bul
     const currentUser = users.find(
       (u) => u.email === email && u.passwordHash === inputPasswordHash
     );
@@ -30,7 +29,6 @@ export function initLoginPage() {
     console.log("currentUser:", currentUser);
 
     if (currentUser) {
-      // 🧩 Zaten giriş yapmış kullanıcı varsa güncelle
       localStorage.setItem("activeUser", JSON.stringify(currentUser));
 
       alert(`Hoş geldin, ${currentUser.firstName}! 👋`);
