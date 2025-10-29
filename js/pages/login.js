@@ -1,50 +1,45 @@
 import { hashText } from "../common/utils.js";
 
 export function initLoginPage() {
-  console.log("Login sayfası yüklendi ✅");
+  console.log("✅ Login sayfası yüklendi");
 
   if (window.LanguageService) {
     LanguageService.translatePage();
   }
 
   async function login() {
-    let userList = JSON.parse(localStorage.getItem("users")) ?? [];
-    const userNameInput = document.getElementById("logineposta");
+    const users = JSON.parse(localStorage.getItem("users")) ?? [];
+    const emailInput = document.getElementById("logineposta");
     const passwordInput = document.getElementById("loginpassword");
 
-    const userName = userNameInput.value.trim();
+    const email = emailInput.value.trim();
     const plainPassword = passwordInput.value.trim();
 
-    if (!userName || !plainPassword) {
-      alert("Kullanıcı adı ve şifre boş olamaz!");
+    if (!email || !plainPassword) {
+      alert("E-posta ve şifre boş olamaz!");
       return;
     }
 
     const inputPasswordHash = await hashText(plainPassword);
 
-    const currentUser = userList.find(
-      (x) => x.userName === userName && x.passwordHash === inputPasswordHash
+    // 🧩 Kayıtlı kullanıcıyı bul
+    const currentUser = users.find(
+      (u) => u.email === email && u.passwordHash === inputPasswordHash
     );
 
-    console.log("currentUser", currentUser);
+    console.log("currentUser:", currentUser);
 
     if (currentUser) {
-      let activeUsers = JSON.parse(localStorage.getItem("activeUser")) || [];
-      activeUsers = activeUsers.filter(
-        (u) => u.userName !== currentUser.userName
-      );
-      activeUsers.push(currentUser);
-      localStorage.setItem("activeUser", JSON.stringify(activeUsers));
+      // 🧩 Zaten giriş yapmış kullanıcı varsa güncelle
+      localStorage.setItem("activeUser", JSON.stringify(currentUser));
 
+      alert(`Hoş geldin, ${currentUser.firstName}! 👋`);
       window.location.href = "/";
     } else {
-      alert("Kullanıcı adı veya şifre hatalı!");
+      alert("E-posta veya şifre hatalı!");
     }
   }
 
-  var btnlogin = document.getElementById("btnlogin");
-
-  btnlogin.addEventListener("click", () => {
-    login();
-  });
+  const btnLogin = document.getElementById("btnlogin");
+  btnLogin.addEventListener("click", login);
 }

@@ -1,32 +1,52 @@
 <h1>Kayıt Ol</h1>
+
 <section>
-  <label for="eposta"> E-posta</label>
+  <label for="firstname">Ad</label>
   <div class="wrapper">
-    <input
-      type="eposta"
-      name="eposta"
-      id="signineposta"
-      placeholder="E-mail"
-      key-placeholder="indexPage.eposta.placeholder"
-    />
+    <input type="text" id="firstname" placeholder="Adınız" required />
   </div>
 </section>
+
 <section>
-  <label for="password"> Şifre</label>
+  <label for="lastname">Soyad</label>
+  <div class="wrapper">
+    <input type="text" id="lastname" placeholder="Soyadınız" required />
+  </div>
+</section>
+
+<section>
+  <label for="email">E-posta</label>
+  <div class="wrapper">
+    <input type="email" id="signineposta" placeholder="E-mail" required />
+  </div>
+</section>
+
+<section>
+  <label for="profilePhoto">Profil Fotoğrafı</label>
+  <div class="wrapper">
+    <input type="file" id="profilePhoto" accept="image/*" />
+  </div>
+</section>
+
+<section>
+  <label for="password">Şifre</label>
   <div class="wrapper">
     <input
       type="password"
-      name="signinpassword"
       id="signinpassword"
       placeholder="Şifre"
-      key-placeholder="indexPage.password.placeholder"
+      required
+      minlength="6"
     />
   </div>
 </section>
+
 <section>
   <button id="btnsignin" type="button">Kayıt Ol</button>
 </section>
+
 <section>
-  <label>Zaten hesabınız var mı ?<a href="/login">GİRİŞ YAPIN</a> </label>
+  <label>Zaten hesabınız var mı? <a href="/login">Giriş Yapın</a></label>
 </section>
-<script src="js/pages/login.js" type="module"></script>
+
+<script src="js/pages/signin.js" type="module"></script>

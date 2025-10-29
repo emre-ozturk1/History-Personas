@@ -1,0 +1,172 @@
+/* profile.css (TAMAMEN YENİ) */
+
+.profile-page {
+  max-width: 800px; /* Kartı biraz genişletelim */
+  margin: 40px auto;
+  padding: 2rem;
+}
+
+.profile-page h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--color-text-primary);
+  text-align: center;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column; /* Mobilde alt alta */
+  gap: 2rem;
+  background-color: var(--color-background-secondary);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--color-border);
+}
+
+/* Orta ve büyük ekranlarda yan yana */
+@media (min-width: 768px) {
+  .profile-card {
+    flex-direction: row; /* Masaüstünde yan yana */
+    align-items: flex-start;
+  }
+}
+
+/* Sol Taraf: Fotoğraf */
+.profile-photo-container {
+  flex-basis: 200px; /* Sabit bir genişlik ayarla */
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--color-accent);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: filter 0.2s ease;
+}
+
+/* Fotoğraf değiştirme aktifken (disabled değilken) */
+#changePhotoBtn:not(:disabled) + .profile-avatar {
+  cursor: pointer;
+}
+#changePhotoBtn:not(:disabled):hover + .profile-avatar {
+  filter: brightness(0.9);
+}
+
+/* Sağ Taraf: Form */
+.profile-info-form {
+  flex-grow: 1; /* Kalan tüm alanı kapla */
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+.form-input {
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Düzenleme dışındayken (disabled) */
+.form-input:disabled {
+  background-color: var(--color-background-muted);
+  color: var(--color-text-secondary);
+  cursor: not-allowed;
+}
+
+/* Düzenleme aktifken */
+.form-input:not(:disabled) {
+  border-color: var(--color-accent);
+}
+.form-input:not(:disabled):focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px var(--color-accent-light);
+}
+
+.form-group small {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  margin-top: -0.25rem;
+}
+
+/* Butonlar */
+.form-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  flex-wrap: wrap; /* Mobilde butonlar sığmazsa alt satıra at */
+}
+
+/* Genel Buton Stili (main.css'te olmalı ama burada tanımlayalım) */
+.btn {
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  display: inline-flex; /* İkonla hizalamak için */
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btn-primary {
+  background-color: var(--color-accent);
+  color: #fff;
+}
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--color-accent-dark); /* Koyu tonu */
+}
+
+.btn-success {
+  background-color: #28a745; /* Yeşil */
+  color: #fff;
+}
+.btn-success:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+.btn-secondary {
+  background-color: var(--color-background-muted);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+}
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--color-background-hover);
+}
+
+#changePhotoBtn {
+  width: 100%;
+}

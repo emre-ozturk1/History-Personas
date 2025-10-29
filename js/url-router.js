@@ -1,6 +1,7 @@
 import { LanguageService } from "./common/language.js";
 import { initThemeSettings } from "./common/cookies.js";
-
+import { initLanguageSwitcher } from "./common/language-switcher.js";
+initLanguageSwitcher();
 // 1. Rota Haritası
 const urlRoutes = {
   404: {

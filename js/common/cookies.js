@@ -1,12 +1,14 @@
 "use strict";
 
-function setCookie(cname, cvalue, exdays) {
+// --- Cookie Fonksiyonları ---
+
+export function setCookie(cname, cvalue, exdays) {
   const d = new Date();
   d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
   document.cookie = `${cname}=${cvalue};expires=${d.toUTCString()};path=/`;
 }
 
-function getCookie(cname) {
+export function getCookie(cname) {
   const name = cname + "=";
   const decoded = decodeURIComponent(document.cookie || "");
   for (let c of decoded.split(";")) {
@@ -16,6 +18,19 @@ function getCookie(cname) {
   return "";
 }
 
+/**
+ * YENİ EKLENEN FONKSİYON: Belirtilen isimdeki cookie'yi siler.
+ * @param {string} name - Silinecek cookie'nin adı.
+ */
+export function deleteCookie(name) {
+  console.log(`Cookie siliniyor: ${name}`);
+  // Cookie'yi silmek için son kullanma tarihini geçmiş bir tarihe ayarlarız
+  document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+}
+
+// --- Tema Fonksiyonları (DOKUNULMADI) ---
+
+// Tema uygula
 export function applyTheme(theme) {
   const body = document.body;
   if (!theme || theme === "auto") {
@@ -23,7 +38,7 @@ export function applyTheme(theme) {
       "(prefers-color-scheme: dark)"
     ).matches;
     body.setAttribute("data-theme", prefersDark ? "dark" : "light");
-    // değişiklikleri dinle
+
     const mq = window.matchMedia("(prefers-color-scheme: dark)");
     mq.onchange = (e) =>
       body.setAttribute("data-theme", e.matches ? "dark" : "light");
@@ -32,11 +47,13 @@ export function applyTheme(theme) {
   }
 }
 
-// Tema ayarlarını her sayfada uygula
+// Tema ayarlarını uygula (navbar + settings)
 export function initThemeSettings() {
+  // 🍪 Mevcut temayı oku
   const temaCookie = getCookie("tema") || "auto";
   applyTheme(temaCookie);
 
+  // 🔘 Settings sayfasındaki tema radio butonlarını bağla
   const themeInputs = document.querySelectorAll(
     '.segmented-control input[name="theme"]'
   );
@@ -45,16 +62,35 @@ export function initThemeSettings() {
     input.addEventListener("click", () => {
       setCookie("tema", input.value, 365);
       applyTheme(input.value);
-      // 🔄 Diğer sekmeler / sayfalar da algılasın
       localStorage.setItem("themeChange", Date.now().toString());
     });
   });
-}
 
-// Diğer sayfalar da tema değişikliğini algılasın
-window.addEventListener("storage", (event) => {
-  if (event.key === "themeChange") {
-    const tema = getCookie("tema") || "auto";
-    applyTheme(tema);
+  // 🌙 Navbar’daki toggle butonunu bağla
+  const themeToggle = document.getElementById("theme-toggle");
+  if (themeToggle) {
+    // Eğer dark ise, toggle'ı açık yap
+    themeToggle.checked = temaCookie === "dark";
+
+    themeToggle.addEventListener("change", () => {
+      const newTheme = themeToggle.checked ? "dark" : "light";
+      setCookie("tema", newTheme, 365);
+      applyTheme(newTheme);
+      localStorage.setItem("themeChange", Date.now().toString());
+    });
   }
-});
+
+  // 🌀 Diğer sekme / sayfalar temayı güncellediğinde algıla
+  window.addEventListener("storage", (event) => {
+    if (event.key === "themeChange") {
+      const tema = getCookie("tema") || "auto";
+      applyTheme(tema);
+      if (themeToggle) {
+        themeToggle.checked = tema === "dark";
+      }
+      themeInputs.forEach((input) => {
+        input.checked = input.value === tema;
+      });
+    }
+  });
+}

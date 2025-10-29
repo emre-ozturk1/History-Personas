@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/settings.css" />
     <link rel="stylesheet" href="css/login.css" />
     <link rel="stylesheet" href="css/signin.css" />
+    <link rel="stylesheet" href="css/profile.css" />
 
     <meta name="description" content="Echoes of History'e hoş geldiniz." />
   </head>
@@ -29,12 +30,65 @@
       </nav>
 
       <div class="header-right">
-        <a href="/login" class="signin">
-          <button>Giriş Yap</button>
-        </a>
-        <a href="/signin" class="signin">
-          <button>Kayıt Ol</button>
-        </a>
+        <div class="theme-switcher">
+          <input
+            type="checkbox"
+            id="theme-toggle"
+            class="theme-toggle-checkbox"
+            aria-label="Temayı Değiştir"
+          />
+          <label for="theme-toggle" class="theme-toggle-label">
+            <svg
+              class="sun"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg
+              class="moon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <span class="toggle-ball"></span>
+          </label>
+        </div>
+        <div id="language-switcher" class="language-switcher">
+          <button class="lang-btn" data-lang="tr">TR</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <div id="auth-buttons">
+          <a href="/login" class="signin">
+            <button>Giriş Yap</button>
+          </a>
+          <a href="/signin" class="signin">
+            <button>Kayıt Ol</button>
+          </a>
+        </div>
         <a href="/settings">
           <button
             class="icon-button"
@@ -59,13 +113,49 @@
             </svg>
           </button>
         </a>
-        <a href="/profile" class="profile-avatar">
-          <img
-            src="https://i.pravatar.cc/40"
-            alt="Kullanıcı profili"
-            key-alt="header.profileAvatarAlt"
-          />
-        </a>
+        <div id="user-info" class="user-info" style="display: none">
+          <div id="user-menu-trigger" class="user-menu-trigger">
+            <img
+              id="user-avatar"
+              src=""
+              alt="Kullanıcı profili"
+              class="user-avatar"
+            />
+            <span id="user-name" class="user-name"></span>
+            <svg
+              class="dropdown-arrow"
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
+
+          <div id="user-dropdown-menu" class="user-dropdown-menu">
+            <a href="/profile" class="dropdown-item" key="header.nav.profile">
+              <span>Profili Güncelle</span>
+            </a>
+            <a href="/settings" class="dropdown-item" key="header.nav.settings">
+              <span>Ayarlar</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a
+              href="#"
+              id="logout-button"
+              class="dropdown-item"
+              key="header.nav.logout"
+            >
+              <span>Çıkış Yap</span>
+            </a>
+          </div>
+        </div>
       </div>
     </header>
     <main id="content"></main>
@@ -73,5 +163,10 @@
     <script src="js/common/language.js" type="module"></script>
     <script src="js/url-router.js" type="module"></script>
     <script src="js/pages/settings.js" type="module"></script>
+    <script src="js/common/navbar.js" type="module"></script>
+    <script type="module">
+      import { initNavbar } from "./js/common/navbar.js";
+      initNavbar();
+    </script>
   </body>
 </html>
