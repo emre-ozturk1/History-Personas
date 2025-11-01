@@ -64,7 +64,9 @@
   color: var(--color-text-primary);
   font-size: 18px;
 }
-
+#content[data-page="landing"] .figures p {
+  color: var(--color-text-secondary);
+}
 #content[data-page="landing"] .figures label {
   color: var(--color-text-secondary);
 }

@@ -8,6 +8,7 @@
         src="https://i.pravatar.cc/150"
         alt="Profil Fotoğrafı"
         class="profile-avatar"
+        key-alt="profile.avatarAlt"
       />
       <input type="file" id="photoInput" accept="image/*" hidden />
       <button id="changePhotoBtn" class="btn btn-secondary" disabled>
@@ -34,17 +35,38 @@
     <form class="profile-info-form" onsubmit="return false;">
       <div class="form-group">
         <label for="profileName" key="profile.firstName">Ad</label>
-        <input type="text" id="profileName" class="form-input" disabled />
+        <input
+          type="text"
+          id="profileName"
+          class="form-input"
+          disabled
+          key-placeholder="profile.firstName.placeholder"
+          placeholder="Adınızı girin..."
+        />
       </div>
 
       <div class="form-group">
         <label for="profileSurname" key="profile.lastName">Soyad</label>
-        <input type="text" id="profileSurname" class="form-input" disabled />
+        <input
+          type="text"
+          id="profileSurname"
+          class="form-input"
+          disabled
+          key-placeholder="profile.lastName.placeholder"
+          placeholder="Soyadınızı girin..."
+        />
       </div>
 
       <div class="form-group">
         <label for="profileEmail" key="profile.email">E-posta</label>
-        <input type="email" id="profileEmail" class="form-input" disabled />
+        <input
+          type="email"
+          id="profileEmail"
+          class="form-input"
+          disabled
+          key-placeholder="profile.email.placeholder"
+          placeholder="E-posta adresiniz..."
+        />
         <small key="profile.email.note"
           >E-posta adresiniz değiştirilemez.</small
         >

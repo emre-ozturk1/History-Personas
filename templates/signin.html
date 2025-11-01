@@ -1,35 +1,55 @@
-<h1>Kayıt Ol</h1>
+<h1 key="signUpPage.title">Kayıt Ol</h1>
 
 <section>
-  <label for="firstname">Ad</label>
+  <label for="firstname" key="signUpPage.firstNameLabel">Ad</label>
   <div class="wrapper">
-    <input type="text" id="firstname" placeholder="Adınız" required />
+    <input
+      type="text"
+      id="firstname"
+      placeholder="Adınız"
+      required
+      key-placeholder="signUpPage.firstNamePlaceholder"
+    />
   </div>
 </section>
 
 <section>
-  <label for="lastname">Soyad</label>
+  <label for="lastname" key="signUpPage.lastNameLabel">Soyad</label>
   <div class="wrapper">
-    <input type="text" id="lastname" placeholder="Soyadınız" required />
+    <input
+      type="text"
+      id="lastname"
+      placeholder="Soyadınız"
+      required
+      key-placeholder="signUpPage.lastNamePlaceholder"
+    />
   </div>
 </section>
 
 <section>
-  <label for="email">E-posta</label>
+  <label for="email" key="signUpPage.emailLabel">E-posta</label>
   <div class="wrapper">
-    <input type="email" id="signineposta" placeholder="E-mail" required />
+    <input
+      type="email"
+      id="signineposta"
+      placeholder="E-mail"
+      required
+      key-placeholder="signUpPage.emailPlaceholder"
+    />
   </div>
 </section>
 
 <section>
-  <label for="profilePhoto">Profil Fotoğrafı</label>
+  <label for="profilePhoto" key="signUpPage.profilePhotoLabel"
+    >Profil Fotoğrafı</label
+  >
   <div class="wrapper">
     <input type="file" id="profilePhoto" accept="image/*" />
   </div>
 </section>
 
 <section>
-  <label for="password">Şifre</label>
+  <label for="password" key="signUpPage.passwordLabel">Şifre</label>
   <div class="wrapper">
     <input
       type="password"
@@ -37,16 +57,24 @@
       placeholder="Şifre"
       required
       minlength="6"
+      key-placeholder="signUpPage.passwordPlaceholder"
     />
   </div>
 </section>
 
 <section>
-  <button id="btnsignin" type="button">Kayıt Ol</button>
+  <button id="btnsignin" type="button" key="signUpPage.signUpButton">
+    Kayıt Ol
+  </button>
 </section>
 
 <section>
-  <label>Zaten hesabınız var mı? <a href="/login">Giriş Yapın</a></label>
+  <label>
+    <span key="signUpPage.alreadyHaveAccountLabel"
+      >Zaten hesabınız var mı?
+    </span>
+    <a href="/login" key="signUpPage.loginLink">Giriş Yapın</a>
+  </label>
 </section>
 
 <script src="js/pages/signin.js" type="module"></script>

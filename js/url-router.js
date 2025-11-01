@@ -39,6 +39,11 @@ const urlRoutes = {
     title: "Kayıt Ol | Echoes of History",
     pageId: "signin",
   },
+  "/history": {
+    template: "/templates/history.html",
+    title: "Geçmiş | Echoes of History",
+    pageId: "history",
+  },
 };
 
 const urlRoute = (event) => {
@@ -57,11 +62,12 @@ const loadPageScript = async (pageId, params = null) => {
     `Script yükleniyor: ${pageId}, Parametreler: ${JSON.stringify(params)}`
   );
 
-  const modulePath = `./pages/${pageId}.js`;
+  const modulePath = `/js/pages/${pageId}.js`;
 
   try {
     const module = await import(modulePath);
     const initFunc = module[`init${capitalize(pageId)}Page`];
+    console.log(capitalize(pageId), "pageıd");
 
     if (typeof initFunc === "function") {
       initFunc(params);
@@ -85,11 +91,20 @@ function capitalize(str) {
 const urlLocationHandler = async () => {
   const location = window.location.pathname;
 
+  const searchParams = new URLSearchParams(window.location.search);
+
   const personaRegex = /^\/persona\/(?<key>[a-zA-Z0-9-]+)$/;
   const personaMatch = location.match(personaRegex);
 
+  const chatRegex = /^\/chat\/(?<key>[a-zA-Z0-9-]+)$/;
+  const chatMatch = location.match(chatRegex);
+
   let route;
-  let params = null;
+
+  let params = {};
+  for (const [key, value] of searchParams.entries()) {
+    params[key] = value;
+  }
 
   if (personaMatch) {
     route = {
@@ -97,10 +112,18 @@ const urlLocationHandler = async () => {
       title: "Persona Profili | Echoes of History",
       pageId: "personaProfile",
     };
-    params = personaMatch.groups;
+
+    params = { ...params, ...personaMatch.groups };
+  } else if (chatMatch) {
+    route = {
+      template: "/templates/chat.html",
+      title: "Sohbet | Echoes of History",
+      pageId: "chat",
+    };
+
+    params = { ...params, ...chatMatch.groups };
   } else {
     route = urlRoutes[location] || urlRoutes["404"];
-    params = null;
   }
 
   const html = await fetch(route.template)
@@ -131,7 +154,7 @@ const urlLocationHandler = async () => {
   await new Promise((resolve) => setTimeout(resolve, 0));
   await loadPageScript(route.pageId, params);
 
-  if (!urlRoutes[location] && !personaMatch) {
+  if (!urlRoutes[location] && !personaMatch && !chatMatch) {
     window.history.pushState({}, "", "/not-found");
   }
 };

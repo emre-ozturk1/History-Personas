@@ -26,18 +26,19 @@ export function initLandingPage() {
     personaCard.innerHTML = "";
     personaList.forEach((persona) => {
       personaCard.innerHTML += `
-        <div class="figures">
-          <a href="/persona/${persona.key}">
-            <img
-              src="${persona.image_url}" 
-              alt="${persona.name}"
-            />
-            <h4 key="indexPage.figures.${persona.key}.name">${persona.name}</h4>
-            <p key="indexPage.figures.${persona.key}.description">
-              ${persona.title}
-            </p>
-          </a>
-        </div>`;
+      <div class="figures">
+        <a href="/persona/${persona.key}">
+          <img
+            src="${persona.image_url}" 
+            alt="${persona.name}"
+            key-alt="indexPage.figures.${persona.key}.name" 
+          />
+          <h4 key="indexPage.figures.${persona.key}.name">${persona.name}</h4>
+          <p key="indexPage.figures.${persona.key}.description">
+            ${persona.title}
+          </p>
+        </a>
+      </div>`;
     });
   }
 

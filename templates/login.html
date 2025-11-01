@@ -1,25 +1,42 @@
-<h1>Giriş Yap</h1>
+<h1 key="loginPage.title">Giriş Yap</h1>
 
 <section>
-  <label for="logineposta">E-posta</label>
+  <label for="logineposta" key="loginPage.emailLabel">E-posta</label>
   <div class="wrapper">
-    <input type="email" id="logineposta" placeholder="E-mail" required />
+    <input
+      type="email"
+      id="logineposta"
+      placeholder="E-mail"
+      required
+      key-placeholder="loginPage.emailPlaceholder"
+    />
   </div>
 </section>
 
 <section>
-  <label for="loginpassword">Şifre</label>
+  <label for="loginpassword" key="loginPage.passwordLabel">Şifre</label>
   <div class="wrapper">
-    <input type="password" id="loginpassword" placeholder="Şifre" required />
+    <input
+      type="password"
+      id="loginpassword"
+      placeholder="Şifre"
+      required
+      key-placeholder="loginPage.passwordPlaceholder"
+    />
   </div>
 </section>
 
 <section>
-  <button id="btnlogin" type="button">Giriş Yap</button>
+  <button id="btnlogin" type="button" key="loginPage.loginButton">
+    Giriş Yap
+  </button>
 </section>
 
 <section>
-  <label>Hesabınız yok mu? <a href="/signin">Kayıt Olun</a></label>
+  <label>
+    <span key="loginPage.noAccountLabel">Hesabınız yok mu?</span>
+    <a href="/signin" key="loginPage.signUpLink">Kayıt Olun</a>
+  </label>
 </section>
 
 <script src="js/pages/login.js" type="module"></script>

@@ -1,11 +1,16 @@
+const speechToTextOptions = {
+  tr: {
+    code: "tr-TR",
+  },
+};
 export const LanguageService = {
   translations: {},
 
   getCurrentLanguage() {
     try {
-      return JSON.parse(localStorage.getItem("dil")) || "tr";
+      return JSON.parse(localStorage.getItem("dil")) || "tr-TR";
     } catch {
-      return "tr";
+      return "tr-TR";
     }
   },
 

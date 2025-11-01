@@ -11,7 +11,15 @@ export async function initSettingsPage() {
   if (!languageSwitcher) return;
 
   const langButtons = languageSwitcher.querySelectorAll(".lang-btn");
+  const clearHistoryBtn = document.getElementById("clearHistoryBtn");
   const currentLang = LanguageService.getCurrentLanguage();
+
+  function clearHistory() {
+    localStorage.removeItem("chatSummaries");
+  }
+  clearHistoryBtn.addEventListener("click", () => {
+    clearHistory();
+  });
 
   function updateActive(lang) {
     langButtons.forEach((btn) => {

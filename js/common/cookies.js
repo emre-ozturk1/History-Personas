@@ -1,7 +1,5 @@
 "use strict";
 
-// --- Cookie Fonksiyonları ---
-
 export function setCookie(cname, cvalue, exdays) {
   const d = new Date();
   d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
@@ -19,15 +17,14 @@ export function getCookie(cname) {
 }
 
 /**
- * YENİ EKLENEN FONKSİYON: Belirtilen isimdeki cookie'yi siler.
- * @param {string} name
+ 
+ @param {string} name
  */
 export function deleteCookie(name) {
   console.log(`Cookie siliniyor: ${name}`);
   document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
 }
 
-// Tema uygula
 export function applyTheme(theme) {
   const body = document.body;
   if (!theme || theme === "auto") {

@@ -16,16 +16,20 @@
 
 <section>
   <h3 key="settingsPage.language.title">Dil</h3>
-  <div id="language-switcher" class="segmented-control">
-    <a href="#" class="lang-btn active" id="tr" data-lang="tr">TR</a>
-    <a href="#" class="lang-btn" id="en" data-lang="en">EN</a>
+  <div id="language-switcher" class="language-switcher">
+    <button class="lang-btn" data-lang="tr">TR</button>
+    <button class="lang-btn" data-lang="en">EN</button>
   </div>
 </section>
 
 <section>
   <h3 key="settingsPage.chatHistory.title">Sohbet Geçmişi</h3>
   <div class="segmented-control">
-    <button key="settingsPage.chatHistory.clearButton">
+    <button
+      type="button"
+      key="settingsPage.chatHistory.clearButton"
+      id="clearHistoryBtn"
+    >
       Sohbet Geçmişini Temizle
     </button>
   </div>

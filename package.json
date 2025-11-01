@@ -1,0 +1,25 @@
+{
+  "name": "history-personas",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emrelax1/History-Personas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emrelax1/History-Personas/issues"
+  },
+  "homepage": "https://github.com/emrelax1/History-Personas#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "ionicons": "^8.0.13"
+  },
+  "description": ""
+}

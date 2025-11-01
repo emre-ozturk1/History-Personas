@@ -2,9 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/ionicons@7/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://cdn.jsdelivr.net/npm/ionicons@7/dist/ionicons/ionicons.js"
+    ></script>
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/settings.css" />
@@ -12,6 +20,8 @@
     <link rel="stylesheet" href="css/signin.css" />
     <link rel="stylesheet" href="css/profile.css" />
     <link rel="stylesheet" href="css/persona-profile.css" />
+    <link rel="stylesheet" href="css/chat.css" />
+    <link rel="stylesheet" href="css/history.css" />
 
     <meta name="description" content="Echoes of History'e hoş geldiniz." />
   </head>
@@ -25,7 +35,7 @@
         <ul>
           <li><a href="/" key="header.nav.home">Anasayfa</a></li>
           <li><a href="/about" key="header.nav.explore">Keşfet</a></li>
-          <li><a href="/echoes" key="header.nav.myEchoes">Yankılarım</a></li>
+          <li><a href="/history" key="header.nav.myEchoes">Yankılarım</a></li>
           <li><a href="/community" key="header.nav.community">Topluluk</a></li>
         </ul>
       </nav>
@@ -79,11 +89,11 @@
           </label>
         </div>
         <div id="language-switcher" class="language-switcher">
-          <button class="lang-btn" data-lang="tr">TR</button>
-          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="tr-TR">TR</button>
+          <button class="lang-btn" data-lang="en-EN">EN</button>
         </div>
         <div id="auth-buttons">
-          <a href="/login" class="signin">
+          <a href="/login" class="login">
             <button>Giriş Yap</button>
           </a>
           <a href="/signin" class="signin">
@@ -166,6 +176,8 @@
     <script src="js/pages/settings.js" type="module"></script>
     <script src="js/common/navbar.js" type="module"></script>
     <script src="js/pages/personaProfile.js" type="module"></script>
+    <script src="js/pages/chat.js" type="module"></script>
+    <script src="js/pages/history.js" type="module"></script>
     <script type="module">
       import { initNavbar } from "./js/common/navbar.js";
       initNavbar();

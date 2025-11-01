@@ -1,5 +1,4 @@
-/* 🎨 Açık Tema Renkleri */
-/* 🎨 Geliştirilmiş Açık Tema (Parchment - Parşömen) */
+/* 🎨 Geliştirilmiş Açık Tema (Sepia Parchment - Sepya Parşömen) */
 [data-theme="light"] {
   --color-background: #fdfbf5; /* Ana Arka Plan (Sıcak, eskitilmiş kağıt) */
   --color-background-secondary: #f5f2e9; /* İkincil Arka Plan (Kartlar, vurgulu alanlar) */
@@ -25,6 +24,7 @@
 }
 
 /* 🎨 Geliştirilmiş Koyu Tema (Inkwell - Mürekkep Hokkası) */
+/* Bu tema, sağladığınız görsele dayanmaktadır. */
 [data-theme="dark"] {
   --color-background: #211f1a; /* Ana Arka Plan (Derin, karanlık) */
   --color-background-secondary: #3a362d; /* İkincil Arka Plan (Kartlar, pasif butonlar) */
@@ -43,6 +43,7 @@
   --switch-background-inactive: #4d4941; /* Ayar Düğmesi - Kapalı Arka Plan */
   --switch-handle: #f5f5dc; /* Ayar Düğmesi - Tutamaç */
 }
+
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
 
 * {
@@ -301,3 +302,30 @@ body {
     transform: translateY(0);
   }
 }
+
+/* .auth-buttons {
+  display: grid;
+  justify-content: center;
+  gap: 15px;
+}
+.login button {
+  position: relative;
+  background-color: var(--color-accent);
+  color: var(--color-text-primary);
+  border-radius: 10px;
+  aspect-ratio: 1.9;
+  width: 120%;
+  margin-right: 10px;
+  height: fit-content;
+}
+.signin button {
+  position: relative;
+  background-color: var(--color-accent);
+  color: var(--color-text-primary);
+  border-radius: 10px;
+  aspect-ratio: 1.9;
+  width: 120%;
+  margin-right: 10px;
+  height: fit-content;
+}
+ */

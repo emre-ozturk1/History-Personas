@@ -1,0 +1,151 @@
+.history-page {
+  display: grid;
+  justify-items: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: calc(70vh - 80px);
+  gap: 1.5rem;
+  box-sizing: border-box;
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.title h2 {
+  color: var(--color-text-primary, #f0f0f0);
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+.histories {
+  width: 100%;
+  text-decoration: none;
+
+  opacity: 0;
+  transform: scale(0.95);
+  animation: fadeInScale 0.3s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.histories a {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  width: 100%;
+  padding: 1.5rem;
+  background-color: var(--color-background-secondary);
+  border-radius: 12px;
+
+  text-decoration: none;
+  color: var(--color-text-secondary, #b0b0b0);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.histories a:hover {
+  background-color: var(--switch-background-inactive);
+  transform: scale(1.02);
+}
+
+#persona-image-history {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  margin: 0;
+  object-fit: cover;
+}
+
+.history-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  text-align: left;
+  gap: 8px;
+}
+
+.history-top > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.history-top h4,
+.history-top p {
+  margin: 0;
+}
+
+/* Persona Adı */
+#persona-name-history {
+  text-decoration: none;
+  color: var(--color-text-primary, #f0f0f0);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Tarih */
+#last-chat-date {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  margin-left: 1rem;
+}
+
+/* Mesaj önizlemesi */
+.history-message {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4em;
+  max-height: 2.8em;
+  margin: 0;
+}
+
+.empty_state {
+  position: relative;
+  top: -20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  #icon {
+    margin: auto;
+    margin-bottom: 0px;
+    font-size: 90px;
+    color: #ccc;
+  }
+  .emptyTitle {
+    margin: 8px 0px;
+    text-align: center;
+    font-weight: normal;
+  }
+  #emptyP {
+    font-size: 14px;
+    margin: 0px;
+    color: #999;
+    text-align: center;
+  }
+}
+#icon {
+  margin: auto;
+  margin-bottom: 0px;
+  font-size: 90px;
+  color: #ccc;
+  z-index: 8888;
+}
